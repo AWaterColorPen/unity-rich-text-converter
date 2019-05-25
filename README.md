@@ -1,2 +1,22 @@
 # react-unity-richtext-converter
-React component to parse and stylize unity rich text  This component can be used to render Unity's Rich Text in the webpage by creating span tags with the appropriate styling. Can be used for developing webtools to test and create dialogs to be used in an unity game.
+> typescript library to converter message between unity rich text and http rich text.
+ 
+## Usage
+
+  *  Install it
+```bash
+npm install react-unity-richtext-converter
+```
+
+  * Usage
+
+```typescript
+```
+
+## Unity Rich Text
+
+(adapted from the [official documentation](https://docs.unity3d.com/Manual/StyledText.html))
+
+## License
+
+MIT © [awatercolorpen](https://github.com/awatercolorpen)
