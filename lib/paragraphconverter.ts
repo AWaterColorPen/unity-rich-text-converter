@@ -9,28 +9,27 @@ const paragraph4unity2html = {
 
 export default class ParagraphConverter implements IConverter {
   public html2unity(input: string): string {
-    const matcharray = input.match(new RegExp("<p>(.*?)<\/p>", "g"));
-    if (!matcharray) {
-      throw new Error(`error no paragraph in html input ${input}`);
-    }
-
-    const output = matcharray.map((item) => {
-      const pattern = new RegExp("<p>(.*?)<\/p>");
-      const properties = item.match(pattern);
-      if (!properties) {
-        throw new Error(`error invalid paragraph in ${item}`);
-      }
-      return properties[1];
-    }).join("\n");
-
-    return output;
+    return this.convert(input, "<p>(.*?)<\/p>", (r: RegExpMatchArray) => `${r[1]}`, "\n");
   }
 
   public unity2html(input: string): string {
-    const parser = paragraph4unity2html;
-    while (input.match(parser.pattern)) {
-      input = input.replace(parser.pattern, parser.replace);
+    return this.convert(input, "(.*)", (r: RegExpMatchArray) => `<p>${r[1]}</p>`, "");
+  }
+
+  private convert(input: string, pattern: string, fill: (r: RegExpMatchArray) => string, separator: string): string {
+    const matcharray = pattern !== "(.*)" ? input.match(new RegExp(pattern, "g")) : input.split("\n");
+    if (!matcharray) {
+      throw new Error(`error no paragraph in html input ${input}`);
     }
-    return input;
+    const output = matcharray.map((item) => {
+      const regexp = new RegExp(pattern);
+      const regExpMatchArray = item.match(regexp);
+      if (!regExpMatchArray) {
+        throw new Error(`error invalid paragraph in ${item}`);
+      }
+      return fill(regExpMatchArray);
+    }).join(separator);
+
+    return output;
   }
 }
