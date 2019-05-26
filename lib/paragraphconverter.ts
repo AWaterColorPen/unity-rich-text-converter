@@ -9,17 +9,20 @@ const paragraph4unity2html = {
 
 export default class ParagraphConverter implements IConverter {
   public html2unity(input: string): string {
-    const pattern = new RegExp("<p>(.*?)<\/p>");
-    let output = ``;
-    while (true) {
-      const matcharray = input.match(pattern);
-      if (matcharray && matcharray.groups) {
-        output = `${output}
-        ${matcharray.groups[0]}`;
-      } else {
-        break;
-      }
+    const matcharray = input.match(new RegExp("<p>(.*?)<\/p>", "g"));
+    if (!matcharray) {
+      throw new Error(`error no paragraph in html input ${input}`);
     }
+
+    const output = matcharray.map((item) => {
+      const pattern = new RegExp("<p>(.*?)<\/p>");
+      const properties = item.match(pattern);
+      if (!properties) {
+        throw new Error(`error invalid paragraph in ${item}`);
+      }
+      return properties[1];
+    }).join("\n");
+
     return output;
   }
 

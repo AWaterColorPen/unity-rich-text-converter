@@ -44,7 +44,7 @@ const color4unity2html = {
 const color4html2unity = {
   pattern: new RegExp("<span style=\"color:([^>\"]*)\">(.*?(?!<span).*?)<\/span>"),
   replace: (match: string, p1: string, p2: string) => {
-    if (!p2.includes("<span")) {
+    if (p2.includes("<span")) {
       throw new Error(`error in span style color html paser : ${match}`);
     }
 
