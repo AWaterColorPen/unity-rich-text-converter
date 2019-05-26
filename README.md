@@ -1,16 +1,38 @@
 # react-unity-richtext-converter
+
 > typescript library to converter message between unity rich text and http rich text.
- 
+
 ## Usage
 
-  *  Install it
-```bash
+- install it
+
+```shell
 npm install react-unity-richtext-converter
 ```
 
-  * Usage
+- usage
 
 ```typescript
+```
+
+## Development
+
+- install env, please make sure [node.js](https://nodejs.org) installed
+
+```shell
+npm install
+```
+
+- build
+
+```shell
+npm run build
+```
+
+- test
+
+```shell
+npm run test
 ```
 
 ## Unity Rich Text

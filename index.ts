@@ -10,7 +10,7 @@ export function add(a: number, b: number): number {
 
 class Converter {
     constructor() {
-        this.colors = colors
+        // this.colors = colors
     }
 
     /**
@@ -23,10 +23,10 @@ class Converter {
         if (!isString(input)) {
             throw new Error("parsing error, input must be a string")
         }
-        while (input.match(parsers.color.pattern)) {
-            input = input.replace()
-        }
-        return input
+        // while (input.match(parsers.color.pattern)) {
+        //     input = input.replace()
+        // }
+        return input;
     }
 }
 
