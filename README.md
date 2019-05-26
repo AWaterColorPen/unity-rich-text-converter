@@ -1,6 +1,6 @@
 # react-unity-richtext-converter
 
-> typescript library to converter message between unity rich text and http rich text.
+> typescript library to converter message between unity rich text and html standard rich text.
 
 ## Usage
 

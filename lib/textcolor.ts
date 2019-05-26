@@ -28,6 +28,7 @@ const colors: Array<{ name: string, color: string }> = [
 ];
 
 const hexReg = new RegExp("#[a-fA-F0-9]{8}");
+
 const color4unity2html = {
   pattern: new RegExp("<color=([^>]*)>(.*?)<\/color>"),
   replace: (match: string, p1: string, p2: string) => {
@@ -39,8 +40,9 @@ const color4unity2html = {
     return `<span style="color: ${color ? color.color : p1.slice(0, 7).toLowerCase()}">${p2}</span>`;
   },
 };
+
 const color4html2unity = {
-  pattern: new RegExp("<span style=\"color:([^>\"]*)\">(.*?)<\/span>"),
+  pattern: new RegExp("<span style=\"color:([^>\"]*)\">(.*?(?!<span).*?)<\/span>"),
   replace: (match: string, p1: string, p2: string) => {
     if (!p2.includes("<span")) {
       throw new Error(`error in span style color html paser : ${match}`);
@@ -48,4 +50,9 @@ const color4html2unity = {
 
     return `<color=${p1}ff>${p2}</color>`;
   },
+};
+
+export const textcolorconverter = {
+  html2unity: color4html2unity,
+  unity2html: color4unity2html,
 };
