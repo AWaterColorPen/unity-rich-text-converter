@@ -1,12 +1,5 @@
 import { IConverter } from "./converterinterface";
 
-const paragraph4unity2html = {
-  pattern: new RegExp("(.*)"),
-  replace: (input: string, p1: string) => {
-    return `<p>${p1}</p>`;
-  },
-};
-
 export default class ParagraphConverter implements IConverter {
   public html2unity(input: string): string {
     return this.convert(input, "<p>(.*?)<\/p>", (r: RegExpMatchArray) => `${r[1]}`, "\n");

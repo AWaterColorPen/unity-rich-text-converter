@@ -27,12 +27,10 @@ const colors: Array<{ name: string, color: string }> = [
   { name: "yellow", color: "#ffff00" },
 ];
 
-const hexReg = new RegExp("#[a-fA-F0-9]{8}");
-
 const color4unity2html = {
   pattern: new RegExp("<color=([^>]*)>(.*?)<\/color>"),
   replace: (match: string, p1: string, p2: string) => {
-    if (!p1.match(hexReg)) {
+    if (!p1.match(new RegExp("#[a-fA-F0-9]{8}"))) {
       throw new Error(`error color code or color name : ${match}`);
     }
 
@@ -42,13 +40,13 @@ const color4unity2html = {
 };
 
 const color4html2unity = {
-  pattern: new RegExp("<span style=\"color:([^>\"]*)\">(.*?(?!<span).*?)<\/span>"),
+  pattern: new RegExp("<span style=\"color: *([^>\"]*)\">(.*?(?!<span).*?)<\/span>"),
   replace: (match: string, p1: string, p2: string) => {
-    if (p2.includes("<span")) {
-      throw new Error(`error in span style color html paser : ${match}`);
+    if (!p1.match(new RegExp("#[a-fA-F0-9]{6}"))) {
+      throw new Error(`error color code : ${match}`);
     }
 
-    return `<color=${p1}ff>${p2}</color>`;
+    return `<color=${p1.toLowerCase()}ff>${p2}</color>`;
   },
 };
 
