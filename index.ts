@@ -25,9 +25,20 @@ export default class Converter implements IConverter {
   }
 
   private convert(input: string, func: (c: IConverter, i: string) => string): string {
+    this.verityinput(input);
     this.converters.forEach((converter) => {
       input = func(converter, input);
     });
     return input;
+  }
+
+  private verityinput(input: string): void {
+    if (input === undefined || input === null) {
+      throw new Error(`input is undefined or null: ${input}`);
+    }
+
+    if (typeof(input) !== "string") {
+      throw new Error(`input is not string type: ${input}`);
+    }
   }
 }

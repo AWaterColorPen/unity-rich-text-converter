@@ -1,6 +1,6 @@
 {
   "name": "unity-rich-text-converter",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "npm pacpage with typescript to converter message between unity rich text and http rich text.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
