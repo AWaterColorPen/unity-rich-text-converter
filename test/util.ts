@@ -1,5 +1,5 @@
 import assert = require("assert");
-import { IConverter } from "../lib/converterinterface";
+import { IConverter } from "../src/converterinterface";
 
 export function testwrapper(converter: IConverter, title: string, html: string, unity: string) {
   it(`${title}: html2unity`, () => {

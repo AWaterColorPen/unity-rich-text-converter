@@ -1,8 +1,9 @@
 {
   "name": "unity-rich-text-converter",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "npm pacpage with typescript to converter message between unity rich text and http rich text.",
-  "main": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "mocha --reporter spec --require ts-node/register test/**/*.ts"

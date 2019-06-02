@@ -1,8 +1,8 @@
-import { IConverter } from "./lib/converterinterface";
-import LinearConverter from "./lib/linearconverter";
-import NestedConverter from "./lib/nestedconverter";
-import IOptions from "./lib/options";
-import ParagraphConverter from "./lib/paragraphconverter";
+import { IConverter } from "./src/converterinterface";
+import LinearConverter from "./src/linearconverter";
+import NestedConverter from "./src/nestedconverter";
+import IOptions from "./src/options";
+import ParagraphConverter from "./src/paragraphconverter";
 
 export default class Converter implements IConverter {
   public options: IOptions | undefined;
