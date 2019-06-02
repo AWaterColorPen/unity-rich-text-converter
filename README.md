@@ -13,6 +13,12 @@ npm install react-unity-richtext-converter
 - usage
 
 ```typescript
+import Converter from "react-unity-richtext-converter";
+
+const converter = new Converter();
+
+const unitytext = converter.html2unity(text);
+const htmltext = converter.unity2html(text);
 ```
 
 ## Development
