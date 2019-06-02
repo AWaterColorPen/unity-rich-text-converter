@@ -2,11 +2,11 @@ import { IConverter } from "./converterinterface";
 
 export default class ParagraphConverter implements IConverter {
   public html2unity(input: string): string {
-    return this.convert(input, "<p>(.*?)<\/p>", (r: RegExpMatchArray) => `${r[1]}`, "\n");
+    return this.convert(input, "<p>(.*?)<\/p>", this.html2unityfill, "\n");
   }
 
   public unity2html(input: string): string {
-    return this.convert(input, "(.*)", (r: RegExpMatchArray) => `<p>${r[1]}</p>`, "");
+    return this.convert(input, "(.*)", this.unity2htmlfill, "");
   }
 
   private convert(input: string, pattern: string, fill: (r: RegExpMatchArray) => string, separator: string): string {
@@ -24,5 +24,15 @@ export default class ParagraphConverter implements IConverter {
     }).join(separator);
 
     return output;
+  }
+
+  private html2unityfill(r: RegExpMatchArray): string {
+    const paragraph = r[1];
+    return `${paragraph}`;
+  }
+
+  private unity2htmlfill(r: RegExpMatchArray): string {
+    const paragraph = r[1];
+    return `<p>${paragraph}</p>`;
   }
 }
