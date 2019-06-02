@@ -1,4 +1,3 @@
-import assert = require("assert");
 import Converter from "..";
 import { testwrapper } from "./util";
 
