@@ -1,6 +1,6 @@
-# react-unity-richtext-converter
+# unity-richtext-converter
 
-[![Build Status](https://travis-ci.org/AWaterColorPen/react-unity-rich-text-converter.svg?branch=master)](https://travis-ci.org/AWaterColorPen/react-unity-rich-text-converter)
+[![Build Status](https://travis-ci.org/AWaterColorPen/unity-rich-text-converter.svg?branch=master)](https://travis-ci.org/AWaterColorPen/unity-rich-text-converter)
 
 > typescript library to converter message between unity rich text and html standard rich text.
 
@@ -9,13 +9,13 @@
 - install it
 
 ```shell
-npm install react-unity-richtext-converter
+npm install unity-richtext-converter
 ```
 
 - usage
 
 ```typescript
-import Converter from "react-unity-richtext-converter";
+import Converter from "unity-richtext-converter";
 
 const converter = new Converter();
 
