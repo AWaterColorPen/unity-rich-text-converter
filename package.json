@@ -1,6 +1,6 @@
 {
   "name": "react-unity-rich-text-converter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "npm pacpage with typescript to converter message between unity rich text and http rich text.",
   "main": "index.js",
   "scripts": {
@@ -22,14 +22,12 @@
     "url": "https://github.com/AWaterColorPen/react-unity-rich-text-converter/issues"
   },
   "homepage": "https://github.com/AWaterColorPen/react-unity-rich-text-converter#readme",
-  "dependencies": {
-    "typescript": "^3.5.1"
-  },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.0.4",
     "mocha": "^6.1.4",
     "ts-node": "^8.2.0",
-    "tslint": "^5.17.0"
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1"
   }
 }
