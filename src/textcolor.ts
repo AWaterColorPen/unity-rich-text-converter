@@ -30,11 +30,12 @@ const colors: Array<{ name: string, color: string }> = [
 const color4unity2html = {
   pattern: new RegExp("<color=([^>]*)>(.*?)<\/color>"),
   replace: (match: string, p1: string, p2: string) => {
-    if (!p1.match(new RegExp("#[a-fA-F0-9]{8}"))) {
+    const color = colors.find((v) => v.name === p1);
+    
+    if (!p1.match(new RegExp("#[a-fA-F0-9]{8}")) && color === undefined) {
       throw new Error(`error color code or color name : ${match}`);
     }
-
-    const color = colors.find((v) => v.name === p1);
+    
     return `<span style="color: ${color ? color.color : p1.slice(0, 7).toLowerCase()}">${p2}</span>`;
   },
 };
