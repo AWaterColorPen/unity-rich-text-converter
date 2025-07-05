@@ -1,8 +1,8 @@
 # unity-richtext-converter
 
-[![Build Status](https://travis-ci.org/AWaterColorPen/unity-rich-text-converter.svg?branch=master)](https://travis-ci.org/AWaterColorPen/unity-rich-text-converter)
+[![Node.js Package](https://github.com/AWaterColorPen/unity-rich-text-converter/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/AWaterColorPen/unity-rich-text-converter/actions/workflows/npm-publish.yml)
 
-> typescript library to converter message between unity rich text and html standard rich text.
+> a typescript library to converter message between unity rich text and html standard rich text.
 
 ## Usage
 
@@ -19,7 +19,9 @@ import Converter from "unity-richtext-converter";
 
 const converter = new Converter();
 
+// convert HTML to unity rich text
 const unitytext = converter.html2unity(text);
+// convert unity rich text to HTML
 const htmltext = converter.unity2html(text);
 ```
 
@@ -37,7 +39,7 @@ npm install
 npm run build
 ```
 
-- test
+- run test
 
 ```shell
 npm run test
@@ -46,6 +48,9 @@ npm run test
 ## Unity Rich Text
 
 (adapted from the [official documentation](https://docs.unity3d.com/Manual/StyledText.html))
+
+## Contributing
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 ## License
 
