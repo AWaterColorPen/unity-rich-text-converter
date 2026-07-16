@@ -16,6 +16,6 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - run: npm deprecate unity-rich-text-converter@0.1.9 "Broken: published without a dist build (see issue #15). Please upgrade to a fixed version."
+      - run: 'npm deprecate unity-rich-text-converter@0.1.9 "Broken: published without a dist build (see issue #15). Please upgrade to a fixed version."'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
