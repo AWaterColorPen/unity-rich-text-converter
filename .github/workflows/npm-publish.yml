@@ -34,6 +34,8 @@ jobs:
       - name: Set package version from release tag
         run: 'npm pkg set version="${GITHUB_REF_NAME#v}"'
       - run: npm run build
+      - name: Guard - ensure dist build output exists
+        run: 'test -f dist/index.js || (echo "ERROR: dist/index.js missing after build; aborting publish (see issue #15)" && exit 1)'
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
