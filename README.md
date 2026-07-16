@@ -1,21 +1,21 @@
-# unity-richtext-converter
+# unity-rich-text-converter
 
 [![Node.js Package](https://github.com/AWaterColorPen/unity-rich-text-converter/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/AWaterColorPen/unity-rich-text-converter/actions/workflows/npm-publish.yml)
 
-> a typescript library to converter message between unity rich text and html standard rich text.
+> A TypeScript library to convert messages between Unity rich text and standard HTML rich text.
 
 ## Usage
 
 - install it
 
 ```shell
-npm install unity-richtext-converter
+npm install unity-rich-text-converter
 ```
 
 - usage
 
 ```typescript
-import Converter from "unity-richtext-converter";
+import Converter from "unity-rich-text-converter";
 
 const converter = new Converter();
 
