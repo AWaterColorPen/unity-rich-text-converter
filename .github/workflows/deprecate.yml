@@ -1,0 +1,21 @@
+# One-shot workflow to deprecate the broken 0.1.9 release on npm.
+# Trigger: GitHub repo -> Actions -> "Deprecate broken 0.1.9" -> Run workflow.
+# This needs NPM_TOKEN (the same repo secret used for publishing) because
+# `npm deprecate` authenticates against the npm registry.
+
+name: Deprecate broken 0.1.9
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deprecate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm deprecate unity-rich-text-converter@0.1.9 "Broken: published without a dist build (see issue #15). Please upgrade to a fixed version."
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

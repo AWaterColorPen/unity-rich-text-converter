@@ -29,6 +29,10 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      # Derive the published version from the release tag (e.g. v0.1.10 -> 0.1.10)
+      # so package.json can stay at 0.1.9 in the repo while we never republish it.
+      - name: Set package version from release tag
+        run: npm pkg set version="${GITHUB_REF_NAME#v}"
       - run: npm run build
       - run: npm publish
         env:
